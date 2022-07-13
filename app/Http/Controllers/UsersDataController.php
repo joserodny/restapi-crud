@@ -22,7 +22,7 @@ class UsersDataController extends Controller
 
     public function store(StoreRequestUsers $request)
     {
-        $data = UsersData::create($request->all());
+        $data = UsersData::create($request->validated());
 
         return response()->json([
             'status' => true,
@@ -48,7 +48,7 @@ class UsersDataController extends Controller
 
     public function update(StoreRequestUsers $request, UsersData $usersData)
     {
-        $usersData->update($request->all());
+        $usersData->update($request->validated());
         return response()->json([
             'status' => true,
             'message' => 'user updated',
